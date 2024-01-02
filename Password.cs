@@ -8,12 +8,12 @@ namespace Password_Generator
 {
     internal class Password
     {
-        public string usableCharacters { get; set; }
+        public string ActualPassword { get; set; }
 
-        public bool lettersChecked { get; set; }
+        public bool LettersChecked { get; set; }
 
-        public bool symbolsChecked { get; set; }
+        public bool SymbolsChecked { get; set; }
 
-        public bool numbersChecked { get; set; }
+        public bool NumbersChecked { get; set; }
     }
 }

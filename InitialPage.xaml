@@ -39,9 +39,15 @@
         <Label Content="Please choose which options you would like to include in your password..." Grid.ColumnSpan="4"
                Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontWeight="Bold"></Label>
 
-        <CheckBox x:Name="Symbols" Content="Include Symbols" Grid.Row="2" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"></CheckBox>
-        <CheckBox x:Name="Numbers" Content="Include Numbers" Grid.Row="3" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"></CheckBox>
-        <CheckBox x:Name="Letters" Content="Include Letters" Grid.Row="4" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"></CheckBox>
+        <CheckBox x:Name="Symbols" Content="Include Symbols" Grid.Row="2" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"
+                  IsChecked="{Binding SymbolsChecked, Mode=TwoWay}"></CheckBox>
+        
+        <CheckBox x:Name="Numbers" Content="Include Numbers" Grid.Row="3" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"
+                  IsChecked="{Binding NumbersChecked, Mode=TwoWay}"></CheckBox>
+        
+        <CheckBox x:Name="Letters" Content="Include Letters" Grid.Row="4" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"
+                  IsChecked="{Binding LettersChecked, Mode=TwoWay}"></CheckBox>
+        
         <CheckBox x:Name="GUID" Content="Use GUID (Exclusive)" Grid.Row="5" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"></CheckBox>
 
         <Button Content="Need Help?" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"
