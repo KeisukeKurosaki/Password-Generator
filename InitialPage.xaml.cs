@@ -23,6 +23,7 @@ namespace Password_Generator
         public InitialPage()
         {
             InitializeComponent();
+            DataContext = new PasswordViewModel();
         }
     }
 }
