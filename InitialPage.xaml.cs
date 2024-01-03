@@ -25,5 +25,12 @@ namespace Password_Generator
             InitializeComponent();
             DataContext = new PasswordViewModel();
         }
+
+        private void GUIDChosen(object sender, EventArgs e)
+        {
+            CheckBox chosenBox = sender as CheckBox;
+
+
+        }
     }
 }

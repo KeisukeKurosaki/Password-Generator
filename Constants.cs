@@ -16,10 +16,14 @@ namespace Password_Generator
         // Lower-case letters
         public const string kAlphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+        public const string kLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
         // Mathematical and Punctual symbols
         public const string kSymbols = ".',:;!?\"'-_()[]{}+−×÷=<>%&@#$\\";
 
         // All numbers
         public const string kNumbers = "1234567890";
+
+        public const int kPasswordLength = 12;
     }
 }

@@ -28,9 +28,9 @@ namespace Password_Generator
             get { return model.SymbolsChecked; }
             set
             {
-                if (model.LettersChecked != value)
+                if (model.SymbolsChecked != value)
                 {
-                    model.LettersChecked = value;
+                    model.SymbolsChecked = value;
                     OnPropertyChanged(nameof(SymbolsChecked));
                 }
             }
