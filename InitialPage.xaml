@@ -36,29 +36,45 @@
                HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontFamily="Helvetica" FontWeight="Bold">
         </Label>
 
-        <Label Content="Please select all of the options you would like to include in your password's creation..." Grid.ColumnSpan="4"
-               Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontWeight="Bold"></Label>
+        <Label Content="Please select the options you would like to include in your password..." Grid.ColumnSpan="4"
+               Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="18">
+        </Label>
 
         <CheckBox x:Name="Symbols" Content="Include Symbols" Grid.Row="2" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"
-                  IsChecked="{Binding SymbolsChecked, Mode=TwoWay}"></CheckBox>
+                  IsChecked="{Binding SymbolsChecked, Mode=TwoWay}">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
         
         <CheckBox x:Name="Numbers" Content="Include Numbers" Grid.Row="3" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"
-                  IsChecked="{Binding NumbersChecked, Mode=TwoWay}"></CheckBox>
+                  IsChecked="{Binding NumbersChecked, Mode=TwoWay}">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
         
         <CheckBox x:Name="Letters" Content="Include Letters" Grid.Row="4" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"
-                  IsChecked="{Binding LettersChecked, Mode=TwoWay}"></CheckBox>
-        
+                  IsChecked="{Binding LettersChecked, Mode=TwoWay}">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+
         <Button Content="Need Help?" Grid.Column="2" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center"
-                FontWeight="Bold"></Button>
+                FontWeight="Bold"  Command="{Binding NavigateToHelpPageCommand}">
+        </Button>
 
         <Button Content="Create Password" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"
-                FontWeight="Bold" Command="{Binding UseCreatePasswordButton}"></Button>
-
-        <Button Content="Create GUID" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"></Button>
+                FontWeight="Bold" Command="{Binding UseCreatePasswordButton}">
+        </Button>
 
         <Label x:Name="ErrorMessage" Content="NOTICE: You must select at least one of the checkboxes that applies to creating a password..."
                Grid.Row="5" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic"
-               Visibility="Collapsed"></Label>
+               Visibility="Collapsed">
+        </Label>
+        
+        
     </Grid>
     
 </Page>

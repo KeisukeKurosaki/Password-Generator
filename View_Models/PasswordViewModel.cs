@@ -17,6 +17,9 @@ namespace Password_Generator
 
         public ICommand UseCreatePasswordButton {get; private set;}
 
+        public ICommand NavigateToHelpPageCommand { get; }
+
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -26,6 +29,7 @@ namespace Password_Generator
         {
             model = new Password();
             UseCreatePasswordButton = new RelayCommand(InitiatePassword);
+            NavigateToHelpPageCommand = new RelayCommand(NavigateToHelp);
         }
 
         public bool SymbolsChecked
@@ -67,7 +71,7 @@ namespace Password_Generator
             }
         }
         
-        private void InitiatePassword(object parameter)
+        private void InitiatePassword(object obj)
         {
             if (SymbolsChecked ||  LettersChecked || NumbersChecked) 
             {
@@ -78,6 +82,12 @@ namespace Password_Generator
             {
                 // Show Error
             }
+        }
+
+        private void NavigateToHelp(object obg)
+        {
+            var window = Application.Current.MainWindow;
+            window.Content = new HelpPage();
         }
 
     }

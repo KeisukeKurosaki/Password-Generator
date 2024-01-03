@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace Password_Generator
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for HelpPage.xaml
     /// </summary>
-    public partial class InitialPage : Page
+    public partial class HelpPage : Page
     {
-        public InitialPage()
+        public HelpPage()
         {
             InitializeComponent();
-            DataContext = new PasswordViewModel();
         }
-
-        //private void GUIDChosen(object sender, EventArgs e)
-        //{
-        //    CheckBox chosenBox = sender as CheckBox;
-        //}
     }
 }

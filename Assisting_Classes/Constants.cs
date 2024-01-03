@@ -16,14 +16,17 @@ namespace Password_Generator
         // Lower-case letters
         public const string kAlphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+        // Combined Letters
         public const string kLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         // Mathematical and Punctual symbols
-        public const string kSymbols = ".',:;!?\"'-_()[]{}+−×÷=<>%&@#$\\";
+        // The symbols " \ were removed (Need to update the list of symbols that are typically allowed for passwords
+
+        public const string kSymbols = ".',:;!?'-_()[]{}+−×÷=<>%&@#$";
 
         // All numbers
         public const string kNumbers = "12345678901234567890";
 
-        public const int kPasswordLength = 12;
+        public const int kPasswordLength = 14;
     }
 }
