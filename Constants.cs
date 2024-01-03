@@ -22,7 +22,7 @@ namespace Password_Generator
         public const string kSymbols = ".',:;!?\"'-_()[]{}+−×÷=<>%&@#$\\";
 
         // All numbers
-        public const string kNumbers = "1234567890";
+        public const string kNumbers = "12345678901234567890";
 
         public const int kPasswordLength = 12;
     }

@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Password_Generator
 {
@@ -13,6 +15,8 @@ namespace Password_Generator
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public ICommand UseCreatePasswordButton {get; private set;}
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -21,6 +25,7 @@ namespace Password_Generator
         public PasswordViewModel()
         {
             model = new Password();
+            UseCreatePasswordButton = new RelayCommand(InitiatePassword);
         }
 
         public bool SymbolsChecked
@@ -61,5 +66,19 @@ namespace Password_Generator
                 }
             }
         }
+        
+        private void InitiatePassword(object parameter)
+        {
+            if (SymbolsChecked ||  LettersChecked || NumbersChecked) 
+            {
+                model.CreatePassword(SymbolsChecked, LettersChecked, NumbersChecked);
+                MessageBox.Show(model.ActualPassword);
+            }
+            else
+            {
+                // Show Error
+            }
+        }
+
     }
 }
