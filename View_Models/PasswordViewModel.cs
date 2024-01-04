@@ -19,15 +19,15 @@ namespace Password_Generator
 
         public ICommand NavigateToHelpPageCommand { get; }
 
+        public ICommand CopyToClipBoardCommand { get; private set; }
+
         public bool _LabelVisibility { get; set; }
 
         public string _LabelContent { get; set;}
 
         public string _LabelColor { get; set;}
 
-        public bool _CopyVisibility { get; set; }
-
-
+        public bool _CopyButtonVisibility { get; set; }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
@@ -39,6 +39,8 @@ namespace Password_Generator
             model = new Password();
             UseCreatePasswordButton = new RelayCommand(InitiatePassword);
             NavigateToHelpPageCommand = new RelayCommand(NavigateToHelp);
+            CopyToClipBoardCommand = new RelayCommand(CopyToClipBoard);
+            _CopyButtonVisibility = false;
         }
 
         public bool SymbolsChecked
@@ -122,12 +124,12 @@ namespace Password_Generator
 
         public bool CopyVisibility
         {
-            get { return _CopyVisibility; }
+            get { return _CopyButtonVisibility; }
             set
             {
-                if (_CopyVisibility != value)
+                if (_CopyButtonVisibility != value)
                 {
-                    _CopyVisibility = value;
+                    _CopyButtonVisibility = value;
                     OnPropertyChanged(nameof(CopyVisibility));
                 }
             }
@@ -139,11 +141,12 @@ namespace Password_Generator
             {
                 model.CreatePassword(SymbolsChecked, LettersChecked, NumbersChecked);
                 ShowPassword();
-                //MessageBox.Show(model.ActualPassword);
+                CopyVisibility = true;
             }
             else
             {
                 ShowError();
+                CopyVisibility = false;
             }
         }
 
@@ -159,10 +162,15 @@ namespace Password_Generator
             LabelColor = "Black";
         }
 
-        private void NavigateToHelp(object obg)
+        private void NavigateToHelp(object obj)
         {
             var window = Application.Current.MainWindow;
             window.Content = new HelpPage();
+        }
+
+        private void CopyToClipBoard(object obj)
+        {
+            Clipboard.SetText(LabelContent);
         }
     }
 }
