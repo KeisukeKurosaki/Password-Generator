@@ -79,6 +79,11 @@
             </Label.Style>
         </Label>
 
+        <Label Content="Password Copied!" Visibility="{Binding PasswordSavedVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
+               Grid.Row="5" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+               VerticalAlignment="Center" FontWeight="Bold" Foreground="ForestGreen">
+        </Label>
+
         <Button Content="Copy Password" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                 VerticalAlignment="Center" FontSize="16" FontWeight="Bold" 
                 Visibility="{Binding CopyVisibility, Converter={StaticResource BoolToVisibilityConverter}}"

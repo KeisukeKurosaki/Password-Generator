@@ -43,6 +43,6 @@
         </Label>
 
         <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"
-                Content="Return to the Password Generator" FontSize="18" Click="ReturnToApp"></Button>
+                Content="Return to the Password Generator" FontSize="18" Click="ReturnToApp" FontWeight="Bold"></Button>
     </Grid>
 </Page>

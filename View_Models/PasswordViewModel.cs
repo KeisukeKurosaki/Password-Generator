@@ -29,6 +29,8 @@ namespace Password_Generator
 
         public bool _CopyButtonVisibility { get; set; }
 
+        public bool _PasswordSavedVisibility { get; set; }
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -41,6 +43,7 @@ namespace Password_Generator
             NavigateToHelpPageCommand = new RelayCommand(NavigateToHelp);
             CopyToClipBoardCommand = new RelayCommand(CopyToClipBoard);
             _CopyButtonVisibility = false;
+            _PasswordSavedVisibility = false;
         }
 
         public bool SymbolsChecked
@@ -118,7 +121,6 @@ namespace Password_Generator
                     _LabelColor = value;
                     OnPropertyChanged(nameof(LabelColor));
                 }
-
             }
         }
 
@@ -134,6 +136,19 @@ namespace Password_Generator
                 }
             }
         }
+
+        public bool PasswordSavedVisibility
+        {
+            get { return _PasswordSavedVisibility; }
+            set
+            {
+                if (_PasswordSavedVisibility != value) 
+                {
+                    _PasswordSavedVisibility = value;
+                    OnPropertyChanged(nameof(PasswordSavedVisibility));
+                }
+            }
+        }
         
         private void InitiatePassword(object obj)
         {
@@ -142,6 +157,7 @@ namespace Password_Generator
                 model.CreatePassword(SymbolsChecked, LettersChecked, NumbersChecked);
                 ShowPassword();
                 CopyVisibility = true;
+                PasswordSavedVisibility = false;
             }
             else
             {
@@ -171,6 +187,7 @@ namespace Password_Generator
         private void CopyToClipBoard(object obj)
         {
             Clipboard.SetText(LabelContent);
+            PasswordSavedVisibility = true;
         }
     }
 }
