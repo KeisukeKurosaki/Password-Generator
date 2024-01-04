@@ -18,6 +18,7 @@ namespace Password_Generator
 
         public bool NumbersChecked { get; set; }
 
+
         public void CreatePassword(bool symbols, bool letters, bool numbers)
         {
             string randomizationString;

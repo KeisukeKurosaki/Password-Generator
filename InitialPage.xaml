@@ -69,12 +69,17 @@
                 FontWeight="Bold" Command="{Binding UseCreatePasswordButton}">
         </Button>
 
-        <Label x:Name="ErrorMessage" Content="NOTICE: You must select at least one of the checkboxes that applies to creating a password..."
-               Grid.Row="5" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic"
-               Visibility="Collapsed">
+        <Label x:Name="ErrorMessage" Content="{Binding LabelContent}"
+               Grid.Row="5" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center"
+               Visibility="{Binding LabelVisibility}" FontWeight="Bold" FontSize="16">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="{Binding LabelColor}" />
+                </Style>
+            </Label.Style>
         </Label>
         
-        
+
     </Grid>
     
 </Page>

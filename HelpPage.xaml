@@ -27,8 +27,22 @@
         </Grid.RowDefinitions>
 
         <Label Content="How To Use The Password Generator" Grid.Row="0" Grid.ColumnSpan="4" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center"
-               FontWeight="Bold">
+               FontWeight="Bold" FontStyle="Italic">
         </Label>
 
+        <Label Content="1.Select a checkbox to include a specific option in your soon-to-be generated password" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
+               VerticalAlignment="Center" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center">
+        </Label>
+
+        <Label Content="2. Once the desired checkboxes are selected, press the 'Create Password' button" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"
+               VerticalAlignment="Center" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center">
+        </Label>
+
+        <Label Content="3. Press the 'Copy' button to add the generated password to your clipboard!" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+               VerticalAlignment="Center" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center">
+        </Label>
+
+        <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Content="Return to the Password Generator" FontSize="18" Click="ReturnToApp"></Button>
     </Grid>
 </Page>

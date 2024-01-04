@@ -15,9 +15,18 @@ namespace Password_Generator
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand UseCreatePasswordButton {get; private set;}
+        public ICommand UseCreatePasswordButton { get; private set; }
 
         public ICommand NavigateToHelpPageCommand { get; }
+
+        public bool _LabelVisibility { get; set; }
+
+        public string _LabelContent { get; set;}
+
+        public string _LabelColor { get; set;}
+
+        public bool _CopyVisibility { get; set; }
+
 
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -70,18 +79,84 @@ namespace Password_Generator
                 }
             }
         }
+
+        public bool ErrorLabelVisibility
+        {
+            get { return _LabelVisibility; }
+            set
+            {
+                if (_LabelVisibility != value)
+                {
+                    _LabelVisibility = value;
+                    OnPropertyChanged(nameof(ErrorLabelVisibility));
+                }
+            }
+        }
+
+        public string LabelContent
+        {
+            get { return _LabelContent; }
+            set
+            {
+                if (_LabelContent != value)
+                {
+                    _LabelContent = value;
+                    OnPropertyChanged(nameof(LabelContent));
+                }
+            }
+        }
+
+        public string LabelColor
+        {
+            get { return _LabelColor; }
+            set
+            {
+                if (_LabelColor != value)
+                {
+                    _LabelColor = value;
+                    OnPropertyChanged(nameof(LabelColor));
+                }
+
+            }
+        }
+
+        public bool CopyVisibility
+        {
+            get { return _CopyVisibility; }
+            set
+            {
+                if (_CopyVisibility != value)
+                {
+                    _CopyVisibility = value;
+                    OnPropertyChanged(nameof(CopyVisibility));
+                }
+            }
+        }
         
         private void InitiatePassword(object obj)
         {
             if (SymbolsChecked ||  LettersChecked || NumbersChecked) 
             {
                 model.CreatePassword(SymbolsChecked, LettersChecked, NumbersChecked);
-                MessageBox.Show(model.ActualPassword);
+                ShowPassword();
+                //MessageBox.Show(model.ActualPassword);
             }
             else
             {
-                // Show Error
+                ShowError();
             }
+        }
+
+        private void ShowError()
+        {
+            LabelContent = Constants.kErrorMessage;
+            LabelColor = "Red";
+        }
+
+        private void ShowPassword()
+        {
+            LabelContent = model.ActualPassword;
+            LabelColor = "Black";
         }
 
         private void NavigateToHelp(object obg)
@@ -89,6 +164,5 @@ namespace Password_Generator
             var window = Application.Current.MainWindow;
             window.Content = new HelpPage();
         }
-
     }
 }

@@ -24,5 +24,13 @@ namespace Password_Generator
         {
             InitializeComponent();
         }
+
+        private void ReturnToApp(object sender, EventArgs e)
+        {
+            
+            var window = Application.Current.MainWindow;
+            window.Content = new InitialPage();
+            
+        }
     }
 }

@@ -28,5 +28,9 @@ namespace Password_Generator
         public const string kNumbers = "12345678901234567890";
 
         public const int kPasswordLength = 14;
+
+        public const string kErrorMessage = "ERROR: You must pick at least one option...";
+
+        public const string kPasswordPreface = "Created Password: ";
     }
 }
