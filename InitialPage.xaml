@@ -74,7 +74,7 @@
                Visibility="{Binding PasswordBoxVisibility, Converter={StaticResource BoolToVisibilityConverter}}" FontWeight="Bold" FontSize="16">
             <TextBox.Style>
                 <Style TargetType="TextBox">
-                    <Setter Property="Foreground" Value="{Binding LabelColor}"/>
+                    <Setter Property="Foreground" Value="{Binding PasswordBoxColor}"/>
                     <Setter Property="Background" Value="Transparent"/>
                     <Setter Property="BorderThickness" Value="0"/>
                     <Setter Property="IsReadOnly" Value="True"/>
