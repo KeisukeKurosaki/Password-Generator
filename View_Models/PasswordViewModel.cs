@@ -163,6 +163,7 @@ namespace Password_Generator
             {
                 ShowError();
                 CopyVisibility = false;
+                PasswordSavedVisibility = false;
             }
         }
 
