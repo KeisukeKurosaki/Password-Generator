@@ -21,7 +21,7 @@ namespace Password_Generator
 
         public ICommand CopyToClipBoardCommand { get; private set; }
 
-        public bool _LabelVisibility { get; set; }
+        public bool _PasswordBoxVisibility { get; set; }
 
         public string _PasswordBoxContent { get; set;}
 
@@ -44,6 +44,7 @@ namespace Password_Generator
             CopyToClipBoardCommand = new RelayCommand(CopyToClipBoard);
             _CopyButtonVisibility = false;
             _PasswordSavedVisibility = false;
+            _PasswordBoxVisibility = false;
         }
 
         public bool SymbolsChecked
@@ -85,15 +86,15 @@ namespace Password_Generator
             }
         }
 
-        public bool ErrorLabelVisibility
+        public bool PasswordBoxVisibility
         {
-            get { return _LabelVisibility; }
+            get { return _PasswordBoxVisibility; }
             set
             {
-                if (_LabelVisibility != value)
+                if (_PasswordBoxVisibility != value)
                 {
-                    _LabelVisibility = value;
-                    OnPropertyChanged(nameof(ErrorLabelVisibility));
+                    _PasswordBoxVisibility = value;
+                    OnPropertyChanged(nameof(PasswordBoxVisibility));
                 }
             }
         }
@@ -171,12 +172,14 @@ namespace Password_Generator
         {
             PasswordBoxContent = Constants.kErrorMessage;
             LabelColor = "Red";
+            PasswordBoxVisibility = true;
         }
 
         private void ShowPassword()
         {
             PasswordBoxContent = model.ActualPassword;
             LabelColor = "Black";
+            PasswordBoxVisibility = true;
         }
 
         private void NavigateToHelp(object obj)
