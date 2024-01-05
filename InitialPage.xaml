@@ -32,12 +32,12 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.ColumnSpan="4" Content="Password Generator"
-               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontFamily="Helvetica" FontWeight="Bold">
+        <Label Grid.Column="1" Grid.ColumnSpan="2" Content="Password Generator"
+               HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontFamily="Helvetica" FontWeight="Bold">
         </Label>
 
         <Label Content="Please select the options you would like to include in your password..." Grid.ColumnSpan="4"
-               Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="18">
+               Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="18" FontFamily="Helvetica">
         </Label>
 
         <CheckBox x:Name="Symbols" Content="Include Symbols" Grid.Row="2" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"
@@ -69,15 +69,18 @@
                 FontWeight="Bold" Command="{Binding UseCreatePasswordButton}" FontSize="18" Background="Green" Foreground="White">
         </Button>
 
-        <Label x:Name="ErrorMessage" Content="{Binding LabelContent}"
+        <TextBox x:Name="ErrorMessage" Text="{Binding PasswordBoxContent}"
                Grid.Row="5" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center"
-               Visibility="{Binding LabelVisibility}" FontWeight="Bold" FontSize="16">
-            <Label.Style>
-                <Style TargetType="Label">
-                    <Setter Property="Foreground" Value="{Binding LabelColor}" />
+               Visibility="{Binding LabelVisibility, Converter={StaticResource BoolToVisibilityConverter}}" FontWeight="Bold" FontSize="16">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Foreground" Value="{Binding LabelColor}"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="IsReadOnly" Value="True"/>
                 </Style>
-            </Label.Style>
-        </Label>
+            </TextBox.Style>
+        </TextBox>
 
         <Label Content="Password Copied!" Visibility="{Binding PasswordSavedVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                Grid.Row="5" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"
@@ -89,6 +92,9 @@
                 Visibility="{Binding CopyVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                 Command="{Binding CopyToClipBoardCommand}">
         </Button>
+
+        <Image Source="C:\Users\Cody\Desktop\Password_Generator\Password_Generator\LockPicture.png" Grid.Column="2" Grid.ColumnSpan="2"></Image>
+        
       
     </Grid>
     

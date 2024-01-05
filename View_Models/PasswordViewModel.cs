@@ -23,7 +23,7 @@ namespace Password_Generator
 
         public bool _LabelVisibility { get; set; }
 
-        public string _LabelContent { get; set;}
+        public string _PasswordBoxContent { get; set;}
 
         public string _LabelColor { get; set;}
 
@@ -98,15 +98,15 @@ namespace Password_Generator
             }
         }
 
-        public string LabelContent
+        public string PasswordBoxContent
         {
-            get { return _LabelContent; }
+            get { return _PasswordBoxContent; }
             set
             {
-                if (_LabelContent != value)
+                if (_PasswordBoxContent != value)
                 {
-                    _LabelContent = value;
-                    OnPropertyChanged(nameof(LabelContent));
+                    _PasswordBoxContent = value;
+                    OnPropertyChanged(nameof(PasswordBoxContent));
                 }
             }
         }
@@ -169,13 +169,13 @@ namespace Password_Generator
 
         private void ShowError()
         {
-            LabelContent = Constants.kErrorMessage;
+            PasswordBoxContent = Constants.kErrorMessage;
             LabelColor = "Red";
         }
 
         private void ShowPassword()
         {
-            LabelContent = model.ActualPassword;
+            PasswordBoxContent = model.ActualPassword;
             LabelColor = "Black";
         }
 
@@ -187,7 +187,7 @@ namespace Password_Generator
 
         private void CopyToClipBoard(object obj)
         {
-            Clipboard.SetText(LabelContent);
+            Clipboard.SetText(PasswordBoxContent);
             PasswordSavedVisibility = true;
         }
     }
