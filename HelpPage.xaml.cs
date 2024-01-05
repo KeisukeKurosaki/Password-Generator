@@ -23,12 +23,14 @@ namespace Password_Generator
         public HelpPage()
         {
             InitializeComponent();
+            DataContext = new HelpViewModel();
         }
 
-        private void ReturnToApp(object sender, EventArgs e)
-        {
-            var window = Application.Current.MainWindow;
-            window.Content = new InitialPage();
-        }
+
+        //private void ReturnToApp(object sender, EventArgs e)
+        //{
+        //    var window = Application.Current.MainWindow;
+        //    window.Content = new InitialPage();
+        //}
     }
 }

@@ -8,6 +8,14 @@ using System.Windows.Controls;
 
 namespace Password_Generator
 {
+    /*
+    *	CLASS           : Password
+    *	DESCRIPTION		:
+    *		This class is used to act as the model for the page that will be generating the random passwords
+    *		for the user on the "InitialPage". This model will act in tandem alongside the PasswordViewModel class
+    *		in order to help with the business logic of generating passwords depending on the choices the user will be
+    *		making with the UI.
+    */
     internal class Password
     {
         // Used to hold the randomly generated password
@@ -29,19 +37,18 @@ namespace Password_Generator
         *		generation of a new password. As such, a bit mask will be used to navigate through the separate
         *		options of which possibilities should be included in the string that will be randomized and ultimately 
         *		generate the password. Each separate switch case statement is a different combination of the options 
-        *		available for genrating a unique password.
+        *		available for generating a unique password depending on the properties that affect the string that is
+        *		used to determine which characters are chosen.
         *	PARAMETERS		:
-        *		bool symbols       :   This bool indicates if symbols should be included in the password
-        *		bool letters       :   This bool indicates if letters should be included in the password
-        *		bool numbers       :   This bool indicates if numbers should be included in the password
+        *		void               :   Void is used as there are no parameters for this method
         *	RETURNS			:
         *		void	           :   This method does not have any return value
         */
-        public void CreatePassword(bool symbols, bool letters, bool numbers)
+        public void CreatePassword()
         {
             string randomizationString;
 
-            int bitmask = (symbols ? 1 : 0) | (letters ? 2 : 0) | (numbers ? 4 : 0);
+            int bitmask = (SymbolsChecked ? 1 : 0) | (LettersChecked ? 2 : 0) | (NumbersChecked ? 4 : 0);
 
             switch (bitmask)
             {

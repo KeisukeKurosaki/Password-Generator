@@ -262,7 +262,8 @@ namespace Password_Generator
         {
             if (SymbolsChecked ||  LettersChecked || NumbersChecked) 
             {
-                model.CreatePassword(SymbolsChecked, LettersChecked, NumbersChecked);
+                // Data-binding to the model will relate to the checkboxes selected in generating a password
+                model.CreatePassword(); 
                 ShowPassword();
                 CopyVisibility = true;
                 PasswordSavedVisibility = false;

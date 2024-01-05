@@ -9,6 +9,10 @@
       Title="HelpPage"
       Background="AntiqueWhite">
 
+    <Page.DataContext>
+        <local:HelpViewModel/>
+    </Page.DataContext>
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -43,6 +47,6 @@
         </Label>
 
         <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"
-                Content="Return to the Password Generator" FontSize="18" Click="ReturnToApp" FontWeight="Bold" FontStyle="Italic"></Button>
+                Content="Return to the Password Generator" FontSize="18" Command="{Binding UseReturnButton}" FontWeight="Bold" FontStyle="Italic"></Button>
     </Grid>
 </Page>
